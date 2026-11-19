@@ -1,0 +1,6 @@
+{
+  "name": "김서영.dev | Backend & Full-Stack Portfolio",
+  "description": "백엔드 설계 및 풀스택 개발자 김서영의 포트폴리오와 FaceFit, 빵비서, 농담(밭머리) 기술 케이스 스터디",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

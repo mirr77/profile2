@@ -1,0 +1,28 @@
+export type RoutePath =
+  | '/'
+  | '/projects/facefit'
+  | '/projects/bbangbiseo'
+  | '/projects/nongdam';
+
+export type NavigateFn = (path: RoutePath, hash?: string) => void;
+
+export const HOTLINK_ASSETS = {
+  watercolorWash:
+    'https://lh3.googleusercontent.com/aida/ALJJyrC6B9O6xCDZiOoae5QEMoMwMCmjEnOEQMAj8uJN7NR9KQZtTlhUJJFaM8Jn5HXUC-lmfXbiI_CKSMF9vUBPS7cMxZ60q4uFp-DtAQahX0owGQtZfMSCENncN5MkMaxiSfqzjrGqOi1y3gGja8hEsgO2_xmzZr-VUIkofFMo11JmR1URFKdw4xkWi_qn4S6_iBzMYR-9WG1OaCr3Wk_sBiV2QS5qIXoxJWdUBEM_0ISm',
+  facefitPreview:
+    'https://lh3.googleusercontent.com/aida-public/AB6AXuBYKpH6hIZO8qilRr4aPCORAG8T6NcW-rq9Alyczcd_l4GzDfhmIMOvABzh6vbZlS1vp9dQ4GBEOE6IqDO5CalnPG4gMyG2KPzQGhgcyKmu18zf4RMQp85uqOIShu4ATJmRksS_FXtRj09b8O5B_Ffl_rCOlSg9_idq7xp9Cdv5Lg-hClatESBcfXn2BX8BuZVZpPv3tznen1UkqljAWRzbVFtA_n4MtXaOPUWxZ1f8Ou9coRKP351M',
+  facefitHeroScreen:
+    'https://lh3.googleusercontent.com/aida-public/AB6AXuBT0AjPxX6m-SupX2r_lCWP99gXq6wkDy8CFLrIUL9QWMEkCG_sCO02KnIiNEWDWVH_ESydYMYzS70JTOLgxI62xyu5LsMA0dql2tyC7oJGKwo0XDnHiPUvP-Q7S3bRB6CJooiJzXLMErkRA2R1WCxOZU0WTkTdjeLC_Mt-qAcNneuo8ZSRIB_iwBAX_ZR2TEmtzYqdWCAnr7mj48um1rTN_GbuQQBuAnPgei6gouh4xWjslgYQHB3l',
+  breadPreview:
+    'https://lh3.googleusercontent.com/aida-public/AB6AXuDp3GuJSq7UosMfFyX1ODN-fwGV7ktr8QuKUST5tayoIkFkclf_rwlER81t93xU4JScLnZAGNoCzXGWmHVgFFP0ocC9O-TLoUN_12abEQ5o7rgMRP7fDrPY59J6z_5XHLLK61y7jLMqBFifT1tImOcaIHGTM5FBrX3sD9L1JJy-GLSE05Sa8pR19b-jNUI-7LwwrtDmrTCeTuj_gzBTtgk8-TL0MZI-Iw7jIon_5BvXMQXpc-xRHQZ3',
+  breadHeroBakery:
+    'https://lh3.googleusercontent.com/aida/ALJJyrC-A1Z7Ffn4T6AKJkT2qwoJ-K4A5mmaluZjyNjQp3VNRhQmkeIXtxrtDQKCc0323ek4yeAG1-ivMWpe9h2JJdfKMs2EOGFbFJWTtf_lOfxR8G_4T3Qq069CgYFRN9ko49oWFznNClBEdOxLGfgdUmgKYD50dGcyhXW8qwpRapEOHUU2z6C8k9GL-ptw7y6Uwm8jYjpreBZadCBUvrpaJvBNrlXJeiDrpScr2cnTOESB',
+  breadRoiShelves:
+    'https://lh3.googleusercontent.com/aida-public/AB6AXuBmHbvCNImNAGv6hEYGVjFJhm4MyHb--qr4_1O90XLwccOtStyfweXfU4xCWH7UZoqm7cqqJL0UD7x1Ep5yHGHZvIzAdzfnYoSta6HvsotdDyAD74CBo0Tmvc3169kD1PrGtYxWL5KbebzETIakHWNwa-Bc-U8gFMiFbLwoXKZT0SlrULdJJOxrak6oNcRpg7R6u0TN5NhU86OuQbFRPX0amRVgqFkKdknncYcQvo8',
+  nongdamPreview:
+    'https://lh3.googleusercontent.com/aida-public/AB6AXuD3YI8K6WZDJ1uwZwcuSmKqIwnSnZv6JPZPrVUKv731wgYG2VAwnmWcEv9Ac3E4fW_clf8MBdwE3R8-MFyg7Rp8p6nDmeW76jGoKTf4touZO7CfDLcOCjuwMkUfbHo7Xnj8ouhhuaC9AG_b-Mjo43aNxO63hQL6fuIAaxxV_FMbGGXYCAbcTN7AGQJ9XbnCJFhB1trS8xGdLmhC8yF92v90QI5eUNbsHb6yQsA3zXzFNv3rwHkI2z2O',
+  nongdamLeaf:
+    'https://lh3.googleusercontent.com/aida/ALJJyrCD09IzL0iolWn5EbzWPBLWNeMa4OCpN4p5OMymY4De4yGVMfa6MbxNTxQheuQcMJJ5OJA1SYdGsJQd9dK8cUCsdcMq9YgVSajYPPvjTnSHzv-M5Jv_GLMBg3dQlxZ-7YeqhgaE5p87s5h15lJWD-aQJsOVZnOMNWDllhUIG77UxrxiIlDhH-DhlxVIHGB-oekuBBoMte7Z2sW29OSTTv4E0nj9C11lnBrBZI5EULUI',
+  nongdamLandscape:
+    'https://lh3.googleusercontent.com/aida-public/AB6AXuDWmZ_dDUcP63HGXmqQRunhjuNtk5vyPsUfxkvsBnk86PJYAEAXDvDAxTKaipp5kjQ55unCJ6SKMDX9YLCv_QglqBUThhcyh0XyWYaKhPPwlzZFBaEy7WFmxkUPkfa_xRg1k5i0Vpi5zyWEWIhuztzUeOXN-NBze4dWvOl4D1-80PcaF7uhn7xMDP2--zMFdHpSSJEQOF_jYrsoKmGdSuzPWfmLcKNXcv1wruSVqcOExUC5txs32wqr',
+};

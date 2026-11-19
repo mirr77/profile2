@@ -1,0 +1,256 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Eommakkaturi';
+  src: url('https://gcore.jsdelivr.net/gh/projectnoonnu/noonfonts_13@1.0/Katuri.woff') format('woff');
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NamyangjuDasan';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/Eoe_YE_M.woff') format('woff');
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NamyangjuDasan';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/Eoe_YE_B.woff') format('woff');
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HappinessGoheung';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/행복고흥L.woff') format('woff');
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HappinessGoheung';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/행복고흥M.woff') format('woff');
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HappinessGoheung';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/행복고흥B.woff') format('woff');
+  font-weight: 700;
+  font-display: swap;
+}
+
+@layer base {
+  html, body {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    overscroll-behavior: none;
+    font-family: 'Noto Sans KR', 'Noto Sans', 'Inter', sans-serif;
+  }
+}
+
+.font-mono-code {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.font-editorial-serif {
+  font-family: 'Playfair Display', 'Noto Sans KR', serif;
+}
+
+.font-cormorant {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.font-dasan {
+  font-family: 'NamyangjuDasan', 'Noto Sans KR', sans-serif;
+}
+
+.font-katuri {
+  font-family: 'Eommakkaturi', 'Noto Sans KR', sans-serif;
+}
+
+.font-goheung {
+  font-family: 'HappinessGoheung', 'Noto Sans KR', sans-serif;
+}
+
+.bg-grid-subtle {
+  background-size: 32px 32px;
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+}
+
+/* S01 Timeline drawing styles */
+.timeline-path-bg {
+  stroke: #CBD5C7;
+  stroke-width: 2;
+  stroke-dasharray: 4 4;
+}
+
+.timeline-path-active {
+  stroke: #91B83C;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.15s ease-out;
+}
+
+.project-card-item {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-card-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.timeline-node {
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.timeline-node.is-active {
+  background-color: #C7F36B;
+  border-color: #91B83C;
+  color: #141F00;
+  box-shadow: 0 0 0 6px rgba(199, 243, 107, 0.3), 0 4px 12px rgba(145, 184, 60, 0.25);
+  transform: scale(1.08);
+}
+
+/* S04 Calligraphy Brush Stroke Animation */
+.brush-char-wrapper {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  vertical-align: baseline;
+}
+
+.brush-char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(4px) scale(0.96);
+  clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+  animation: inkStrokeReveal 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  filter: blur(1.5px);
+}
+
+@keyframes inkStrokeReveal {
+  0% {
+    opacity: 0;
+    clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+    transform: translateY(4px) scale(0.95);
+    filter: blur(2px) contrast(1.2);
+  }
+  40% {
+    opacity: 0.85;
+    clip-path: polygon(0 0, 60% 0, 45% 100%, 0% 100%);
+    transform: translateY(1px) scale(1.02);
+    filter: blur(0.8px);
+  }
+  100% {
+    opacity: 1;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+/* S04 Falling botanical leaves */
+@keyframes leaf-fall-autumn {
+  0% {
+    top: -40px;
+    opacity: 0;
+    filter: drop-shadow(0 2px 5px rgba(45,90,39,0.06)) hue-rotate(0deg) saturate(1) brightness(1);
+  }
+  10% {
+    opacity: var(--leaf-target-opacity, 0.75);
+    filter: drop-shadow(0 3px 6px rgba(45,90,39,0.06)) hue-rotate(0deg) saturate(1.05) brightness(1);
+  }
+  25% {
+    filter: drop-shadow(0 4px 8px rgba(45,90,39,0.08)) hue-rotate(-6deg) saturate(1.1) brightness(1.02);
+  }
+  45% {
+    filter: drop-shadow(0 4px 10px rgba(110,95,20,0.08)) hue-rotate(-26deg) saturate(1.4) sepia(0.3) brightness(1.04);
+  }
+  65% {
+    filter: drop-shadow(0 5px 12px rgba(160,90,15,0.1)) hue-rotate(-48deg) saturate(1.85) sepia(0.6) brightness(1.05);
+  }
+  82% {
+    filter: drop-shadow(0 5px 12px rgba(180,50,20,0.12)) hue-rotate(-68deg) saturate(2.4) sepia(0.75) contrast(1.1) brightness(1.02);
+  }
+  92% {
+    opacity: var(--leaf-target-opacity, 0.75);
+    filter: drop-shadow(0 5px 14px rgba(160,20,20,0.14)) hue-rotate(-86deg) saturate(3.1) sepia(0.85) contrast(1.15) brightness(0.96);
+  }
+  100% {
+    top: calc(100% + 50px);
+    opacity: 0;
+    filter: drop-shadow(0 3px 8px rgba(140,15,15,0.08)) hue-rotate(-90deg) saturate(3.2) sepia(0.9) contrast(1.2) brightness(0.92);
+  }
+}
+
+@keyframes leaf-sway-1 {
+  0% { transform: translateX(0px) rotateZ(0deg) rotateY(0deg); }
+  25% { transform: translateX(32px) rotateZ(16deg) rotateY(28deg); }
+  50% { transform: translateX(-26px) rotateZ(-14deg) rotateY(48deg); }
+  75% { transform: translateX(28px) rotateZ(18deg) rotateY(24deg); }
+  100% { transform: translateX(0px) rotateZ(-5deg) rotateY(0deg); }
+}
+
+@keyframes leaf-sway-2 {
+  0% { transform: translateX(0px) rotateZ(-8deg) rotateY(0deg); }
+  30% { transform: translateX(-38px) rotateZ(-20deg) rotateY(38deg); }
+  60% { transform: translateX(30px) rotateZ(14deg) rotateY(56deg); }
+  85% { transform: translateX(-18px) rotateZ(-10deg) rotateY(26deg); }
+  100% { transform: translateX(0px) rotateZ(12deg) rotateY(0deg); }
+}
+
+@keyframes leaf-sway-3 {
+  0% { transform: translateX(0px) rotateZ(6deg) rotateY(16deg); }
+  25% { transform: translateX(26px) rotateZ(20deg) rotateY(44deg); }
+  55% { transform: translateX(-30px) rotateZ(-15deg) rotateY(22deg); }
+  80% { transform: translateX(24px) rotateZ(12deg) rotateY(46deg); }
+  100% { transform: translateX(-4px) rotateZ(-3deg) rotateY(16deg); }
+}
+
+.leaf-particle-img {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  will-change: transform, top, opacity, filter;
+  user-select: none;
+  opacity: 0;
+  animation-name: leaf-fall-autumn, var(--sway-animation, leaf-sway-1);
+  animation-timing-function: linear, cubic-bezier(0.4, 0, 0.2, 1);
+  animation-iteration-count: infinite, infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .leaf-particle-img, #leaves-falling-container {
+    display: none !important;
+    animation: none !important;
+  }
+  .brush-char {
+    opacity: 1 !important;
+    clip-path: none !important;
+    transform: none !important;
+    filter: none !important;
+    animation: none !important;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5C7;
+  border-radius: 9999px;
+}
